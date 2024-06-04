@@ -1,0 +1,14 @@
+.list {
+  margin-top: 20px;
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+.item {
+  padding: 16px;
+  flex-basis: calc((100% - 36px) / 2);
+  border: 1px solid blueviolet;
+}
+.name {
+  margin-bottom: 8px;
+}
