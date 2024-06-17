@@ -1,8 +1,7 @@
-// import clsx from "clsx";
 import css from "./MovieList.module.css";
 import { Link } from "react-router-dom";
 
-export default function MovieList({ moviesList }) {
+export default function MovieList({ moviesList, location }) {
 
     const defaultImg = "https://stock.adobe.com/ua/search?k=default";
     
@@ -12,7 +11,7 @@ export default function MovieList({ moviesList }) {
         ({ id, title, vote_average, poster_path, release_date }) => {
           return (
             <li className={css.moviesItem} key={id}>
-              <Link to={`/movies/${id}`} className={css.link}>
+              <Link to={`/movies/${id}`} state={{from: location}}  className={css.link}>
                 <img
                   className={css.moviesImage}
                   src={
