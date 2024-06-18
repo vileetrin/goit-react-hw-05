@@ -1,8 +1,8 @@
 import css from "./MovieList.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-export default function MovieList({ moviesList, location }) {
-
+export default function MovieList({ moviesList }) {
+  const location = useLocation();
     const defaultImg = "https://stock.adobe.com/ua/search?k=default";
     
   return (

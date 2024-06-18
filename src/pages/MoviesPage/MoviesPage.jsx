@@ -1,4 +1,4 @@
-import { useSearchParams, useLocation} from 'react-router-dom';
+import { useSearchParams} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMoviesByQuery } from '../../tmdbApi';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -8,7 +8,6 @@ import css from './MoviesPage.module.css';
 import MovieList from '../../components/MovieList/MovieList';
 
 export default function MoviesPage() {
-  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('movieName') ?? ''; 
   const [searchedMovies, setSearchedMovies] = useState([]);
@@ -54,7 +53,7 @@ export default function MoviesPage() {
   return (
     <div className={css.container}>
       <SearchBar onSubmit={handleSubmit} />
-      {searchedMovies.length > 0 && <MovieList moviesList={searchedMovies} location={location} />}
+      {searchedMovies.length > 0 && <MovieList moviesList={searchedMovies}/>}
       {loading && <Loader />}
       {isError && <ErrorMsg />}
     </div>
